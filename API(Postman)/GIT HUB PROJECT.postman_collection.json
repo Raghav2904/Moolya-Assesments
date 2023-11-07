@@ -1,0 +1,908 @@
+{
+	"info": {
+		"_postman_id": "dbd25fe7-e7d4-48f8-a95f-0d32478fdf31",
+		"name": "GIT HUB PROJECT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30450949"
+	},
+	"item": [
+		{
+			"name": "Create a repository for the authenticated user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Moolya Project\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/user/repos",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"user",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Repo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Moolya\",\r\n    \"description\": \"This is your first repository\",\r\n    \"homepage\": \"https://github.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET A REPO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREAT FORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hello-World\",\r\n    \"default_branch_only\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/forks",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"forks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST FORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/forks",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"forks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List repositories for a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{git_base_url}}/users/{{owner}}/repos",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"users",
+						"{{owner}}",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List repository languages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/languages",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List public repositories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repositories",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repositories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create or update file contents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"jsondata=pm.response.json().content.sha\r",
+							"\r",
+							"pm.globals.set(\"sha_create\", jsondata);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"a new commit message\",\r\n    \"committer\": {\r\n        \"name\": \"Monalisa Octocat\",\r\n        \"email\": \"octocat@github.com\"\r\n    },\r\n    \"content\": \"bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz\",\r\n    \"sha\": \"95b966ae1c166bd92f8ae7d1c313e738c731dfc3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/contents/notes/hello.txt",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"contents",
+						"notes",
+						"hello.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a file",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"my commit message\",\r\n    \"committer\": {\r\n        \"name\": \"Monalisa Octocat\",\r\n        \"email\": \"octocat@github.com\"\r\n    },\r\n    \"sha\": \"fb617c9e42866ca24d0ff8e0c2725048f6f9530c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/contents/notes/hello.txt",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"contents",
+						"notes",
+						"hello.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List repository tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/tags",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an autolink reference for a repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"jsondata=pm.response.json().id\r",
+							"pm.globals.set(\"auto_link_id\", jsondata);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key_prefix\": \"TICKET-\",\r\n    \"url_template\":\"https://example.com/TICKET?query<num>\",\r\n    \"is_alphanumeric\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/autolinks",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"autolinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all repository topics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/topics",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an autolink reference of a repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/autolinks/{{auto_link_id}}",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"autolinks",
+						"{{auto_link_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an autolink reference from a repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/autolinks/{{auto_link_id}}",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"autolinks",
+						"{{auto_link_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Replace all repository topics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"names\": [\r\n        \"octocat\",\r\n        \"atom\",\r\n        \"electron\",\r\n        \"api\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}/topics",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Reposetory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <YOUR-TOKEN>"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28"
+					}
+				],
+				"url": {
+					"raw": "{{git_base_url}}/repos/{{owner}}/{{repo}}",
+					"host": [
+						"{{git_base_url}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "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",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
