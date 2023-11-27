@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231127 16:34:15.100" rpa="false" schemaversion="4">
+<suite id="s1" name="Test Case" source="C:\Users\Admin\PycharmProjects\Mobile Testing(Robot Framework)\General_Store\test_case.robot">
+<test id="s1-t1" name="General Store Application" line="5">
+<kw name="Open general application" library="keywords">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>devicename=${device_name}</arg>
+<arg>platformName=${platform_name}</arg>
+<arg>appPackage=${app_package}</arg>
+<arg>appActivity=${app_activity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20231127 16:34:15.360" endtime="20231127 16:34:26.574"/>
+</kw>
+<status status="PASS" starttime="20231127 16:34:15.360" endtime="20231127 16:34:26.574"/>
+</kw>
+<kw name="Select country" library="keywords">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>com.androidsample.generalstore:id/spinnerCountry</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20231127 16:34:31.122" level="INFO">criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry
+criteria is com.androidsample.generalstore:id/spinnerCountry</msg>
+<status status="PASS" starttime="20231127 16:34:26.575" endtime="20231127 16:34:31.122"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>com.androidsample.generalstore:id/spinnerCountry</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231127 16:34:31.123" level="INFO">Clicking element 'com.androidsample.generalstore:id/spinnerCountry'.</msg>
+<msg timestamp="20231127 16:34:31.188" level="INFO">criteria is com.androidsample.generalstore:id/spinnerCountry</msg>
+<status status="PASS" starttime="20231127 16:34:31.122" endtime="20231127 16:34:31.188"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231127 16:34:41.189" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231127 16:34:31.188" endtime="20231127 16:34:41.189"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>13</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>479</arg>
+<arg>2024</arg>
+<arg>500</arg>
+<arg>701</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20231127 16:34:45.510" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+    at JWProxy.command (C:\Users\Admin\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\jsonwp-proxy\proxy.js:266:13)</msg>
+<status status="FAIL" starttime="20231127 16:34:45.490" endtime="20231127 16:34:45.517"/>
+</kw>
+<msg timestamp="20231127 16:34:45.519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+    at JWProxy.command (C:\Users\Admin\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\jsonwp-proxy\proxy.js:266:13)</msg>
+<msg timestamp="20231127 16:34:45.529" level="FAIL">InvalidElementStateException: Message: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+	at io.appium.uiautomator2.handler.W3CActions.safeHandle(W3CActions.java:84)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:38)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:252)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:242)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:51)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:764)
+</msg>
+<status status="FAIL" starttime="20231127 16:34:41.191" endtime="20231127 16:34:45.530"/>
+</kw>
+<status status="FAIL" starttime="20231127 16:34:41.190" endtime="20231127 16:34:45.530"/>
+</iter>
+<status status="FAIL" starttime="20231127 16:34:41.189" endtime="20231127 16:34:45.531"/>
+</for>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>//android.widget.TextView[@text='India']</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20231127 16:34:45.531" endtime="20231127 16:34:45.531"/>
+</kw>
+<status status="FAIL" starttime="20231127 16:34:26.575" endtime="20231127 16:34:45.531"/>
+</kw>
+<kw name="Enter first name" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.531" endtime="20231127 16:34:45.532"/>
+</kw>
+<kw name="Select Gender" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.533" endtime="20231127 16:34:45.533"/>
+</kw>
+<kw name="Click on Lets shop" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.533" endtime="20231127 16:34:45.533"/>
+</kw>
+<kw name="Click on add to cart" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.533" endtime="20231127 16:34:45.534"/>
+</kw>
+<kw name="Go to cart" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.534" endtime="20231127 16:34:45.534"/>
+</kw>
+<kw name="Click on checkbox" library="keywords">
+<status status="NOT RUN" starttime="20231127 16:34:45.534" endtime="20231127 16:34:45.534"/>
+</kw>
+<status status="FAIL" starttime="20231127 16:34:15.359" endtime="20231127 16:34:45.534">InvalidElementStateException: Message: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+	at io.appium.uiautomator2.handler.W3CActions.safeHandle(W3CActions.java:84)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:38)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:252)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:242)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:51)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+    [ Message content over the limit has been removed. ]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:764)</status>
+</test>
+<status status="FAIL" starttime="20231127 16:34:15.101" endtime="20231127 16:34:45.549"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Case">Test Case</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231127 16:34:45.519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
+    at JWProxy.command (C:\Users\Admin\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\jsonwp-proxy\proxy.js:266:13)</msg>
+</errors>
+</robot>
