@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231230 13:23:46.202" rpa="false" schemaversion="4">
+<suite id="s1" name="Test cases" source="C:\Users\Admin\PycharmProjects\Flipkart(Robot)\Flipkart\Test_cases.robot">
+<kw name="Opening Flipkart" library="Key_words" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231230 13:23:46.575" level="INFO">Opening browser 'chrome' to base url 'https://www.flipkart.com/'.</msg>
+<status status="PASS" starttime="20231230 13:23:46.574" endtime="20231230 13:23:51.925"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231230 13:23:51.925" endtime="20231230 13:23:52.151"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:46.573" endtime="20231230 13:23:52.151"/>
+</kw>
+<test id="s1-t1" name="Flipkart" line="7">
+<kw name="Moving to Mobile Tab" library="Key_words">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//a[@aria-label="Mobiles"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231230 13:23:52.159" level="INFO">Clicking element '//a[@aria-label="Mobiles"]'.</msg>
+<status status="PASS" starttime="20231230 13:23:52.157" endtime="20231230 13:23:54.143"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:52.155" endtime="20231230 13:23:54.143"/>
+</kw>
+<kw name="Moving to Electronics Tab" library="Key_words">
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>//span[@class="_2I9KP_"][1]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231230 13:23:54.148" level="INFO">Simulating Mouse Over on element '//span[@class="_2I9KP_"][1]'.</msg>
+<status status="PASS" starttime="20231230 13:23:54.147" endtime="20231230 13:23:54.641"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:54.146" endtime="20231230 13:23:54.641"/>
+</kw>
+<kw name="Selecting a Mobile" library="Key_words">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//a[@title="Motorola g8 power lite"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231230 13:23:54.646" level="INFO">Clicking element '//a[@title="Motorola g8 power lite"]'.</msg>
+<status status="PASS" starttime="20231230 13:23:54.644" endtime="20231230 13:23:55.416"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class="_4rR01T"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231230 13:23:55.416" endtime="20231230 13:23:56.319"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="_4rR01T"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231230 13:23:56.320" level="INFO">Clicking element '//div[@class="_4rR01T"]'.</msg>
+<status status="PASS" starttime="20231230 13:23:56.319" endtime="20231230 13:23:56.632"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:54.642" endtime="20231230 13:23:56.632"/>
+</kw>
+<kw name="Add to cart" library="Key_words">
+<kw name="Get Window Handles" library="SeleniumLibrary">
+<var>${current_windows}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20231230 13:23:56.650" level="INFO">${current_windows} = ['93E68FA99ECCA70F0A126766D7C8827D', '840548F1CC4BC0B9EDB4ED8421DB8059']</msg>
+<status status="PASS" starttime="20231230 13:23:56.635" endtime="20231230 13:23:56.650"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${current_windows}[-1]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20231230 13:23:56.651" endtime="20231230 13:23:56.797"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@class="_2KpZ6l _2U9uOA _3v1-ww"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231230 13:23:56.799" level="INFO">Clicking button '//button[@class="_2KpZ6l _2U9uOA _3v1-ww"]'.</msg>
+<status status="PASS" starttime="20231230 13:23:56.797" endtime="20231230 13:23:59.097"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:56.634" endtime="20231230 13:23:59.097"/>
+</kw>
+<kw name="Verifying item in the cart" library="Key_words">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${mobile_name}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231230 13:23:59.150" level="INFO">Current page contains text 'MOTOROLA G8 Power Lite (Arctic Blue, 64 GB)'.</msg>
+<status status="PASS" starttime="20231230 13:23:59.099" endtime="20231230 13:23:59.150"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:59.098" endtime="20231230 13:23:59.151"/>
+</kw>
+<status status="PASS" starttime="20231230 13:23:52.152" endtime="20231230 13:23:59.151"/>
+</test>
+<status status="PASS" starttime="20231230 13:23:46.204" endtime="20231230 13:23:59.153"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test cases">Test cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
